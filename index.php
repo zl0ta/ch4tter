@@ -1,3 +1,9 @@
+<?php
+  	session_start();
+    $UID = $_SESSION['username'];
+    if (!isset($UID)) header("Location: sign_up.php");
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
