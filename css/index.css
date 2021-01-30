@@ -1,0 +1,37 @@
+.background {
+    background-color: #a4bdbe;
+}
+
+.header {
+    background-color: #709899;
+    margin: auto;
+    margin-top: -1.4em;
+    width: 70%;
+    color: white;
+    font-weight: bold;
+    padding: 0% 1%;
+}
+.ch4tter-logo {
+    display: inline-block;
+}
+.chat-title {
+    max-width: 80%;
+    display: inline-block;
+}
+
+.main-box {
+    width: 72%;
+    margin: 0 auto;
+}
+.chat-list {
+    width: 28%;
+    float: left;
+    padding: 0 1%;
+    background-color: lightgray;
+}
+.chat-window {
+    width: 68%;
+    display: inline-block;
+    padding: 0 1%;
+    background-color: #e8e8e8;
+}
