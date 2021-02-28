@@ -1,3 +1,5 @@
+//isn't inuse now, trying to rewrite this in app.js
+
 const status = document.getElementById('status');
 const messages = document.getElementById('messages');
 const form = document.getElementById('form');

@@ -2,28 +2,27 @@ const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
 const express = require("express");
 const bodyParser = require("body-parser");
-
-//HTTP server
-const http = require("http-server");
-const server = http.createServer();
-server.listen(3000, function(req, res) {
-  console.log("Server has been started...");
-});
-
-//Web Socket
 const WebSocket = require('ws');
-const ws_server = new WebSocket.Server({port:3030});
-ws_server.on('connection', ws => {
-    ws.on('message', message => {
-        ws_server.clients.forEach(client => {
-            if (client.readyState === WebSocket.OPEN) client.send(message);
-        });
-    });
-});
+const http = require("http-server");
 
 const app = express();
+const server = http.createServer(app);
 const urlencodedParser = bodyParser.urlencoded({extended: false});
+const wsServer = new WebSocket.Server({port: 3000});
 
+wsServer.on('connection', ws => {
+  ws.on('message', m => {
+    wsServer.clients.forEach(client => {
+      if (client.readyState === WebSocket.OPEN) client.send(m);
+    });
+  });
+  wsServer.on("error", e => wsServer.send(e));
+  wsServer.send('I am a WebSocket server');
+});
+
+server.listen(3030, function() {
+  console.log("Server has been started...");
+});
 //app.use(express.cookieDecoder());
 //app.use(express.session());
 
@@ -88,14 +87,14 @@ app.post("/log_in", urlencodedParser, function (req, res) {
 app.post("/main", urlencodedParser, function (req, res) {
   if(!req.body) return res.sendStatus(400);
 
-  const messages = document.getElementById('messages');
-  const form = document.getElementById('form');
-  const input = document.getElementById('input');
+  const messages = req.body.messages;
+  const form = req.body.form;
+  const input = req.body.input;
 
   const ws = new WebSocket('ws://localhost:3000');
 
   function printMessage(value) {
-      const li = document.createElement('li');
+      const li = req.body.createElement('li');
       li.innerHTML = value;
       messages.appendChild(li);
   }

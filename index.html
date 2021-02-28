@@ -4,7 +4,8 @@
         <meta charset="utf-8" />
         <title> Cha4tter </title>
         <meta name="viewport" content="width=device-width, initial_scale=1.0">
-        <!--styles-->
+        <!--styles, посилання на файли css перестали працювати (Stylesheet not loaded because of MIME-type),
+        пізніше вирішу цю проблему-->
         <!--base--><style>
             input {
             margin-bottom: 1em;
@@ -122,7 +123,7 @@
                 padding: 0;
                 width: 71%;
                 animation-name: animatetop;
-                animation-duration: 0.4s;
+                animation-duration: 4s;
             }
             .add-member {
                 border-radius: 100%;
@@ -148,8 +149,8 @@
                 }
             }
         </style>
-        <!--<link type="text/css" rel="stylesheet" href="/base.css">
-        <link type="text/css" rel="stylesheet" href="/index.css">-->
+        <!--<link type="text/css" rel="stylesheet" href="/css/base.css">
+        <link type="text/css" rel="stylesheet" href="/css/index.css">-->
     </head>
     <body class="background">
         <div class="header">
@@ -198,15 +199,16 @@
                         }
                     }
 
-                    const add_member = document.querySelector('.add-member');
+                    //при натисненні на "+" додається ще одне поле для введення логіну юзера
+                    //поки що реалізовувати не буду, у чат-рум можна буде потрапити через пошук або унінікальне посилання
+                    /*const add_member = document.querySelector('.add-member');
                     const form = document.getElementById('add-chat')
-
                     add_member.onclick = function() {
                         const input = document.createElement('input');
                         input.type = "text";
                         input.className = "user-login";
-                        document.body.insertAdjacentHTML("afterbegin", `<input class="user-login">`);
-                    }
+                        document.body.form.insertAdjacentHTML("afterbegin", `<input class="user-login">`);
+                    }*/
 
                 </script>
             </div>
