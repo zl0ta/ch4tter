@@ -92,7 +92,6 @@
                 width: 100%;
                 height: 100%;
                 overflow: auto;
-                background-color: rgb(0, 0, 0);
                 background-color: rgba(0, 0, 0, 0.4);
             }
             .close {
@@ -122,31 +121,17 @@
                 margin-top: 5%;
                 padding: 0;
                 width: 71%;
-                animation-name: animatetop;
-                animation-duration: 4s;
             }
             .add-member {
                 border-radius: 100%;
                 background-color: darkgrey;
                 color: white;
             }
-            #title, .user-login {
-                /*display: inline-block;*/
+            #title, #description {
                 width: 60%;
             }
             .settings-line {
-                margin: 0.5em;
-            }
-
-            @keyframes animetetop {
-                from {
-                    top: -300px;
-                    opacity: 0
-                }
-                to {
-                    top: 0;
-                    opacity: 1
-                }
+                margin: 2%;
             }
         </style>
         <!--<link type="text/css" rel="stylesheet" href="/css/base.css">
@@ -175,9 +160,11 @@
                             <form method="POST" id="add-chat">
                                 <span>Chat-room title</span><br>
                                 <input type="text" id="title"><br>
-                                <span>Add members</span><br>
+                                <span>Description</span><br>
+                                <input type="text" id="description">
+                                <!--<span>Add members</span><br>
                                 <input type="text" class="user-login">
-                                <span class="add-member">&nbsp+&nbsp</span>
+                                <span class="add-member">&nbsp+&nbsp</span>-->
                             </form>
                         </div>
                     </div>
