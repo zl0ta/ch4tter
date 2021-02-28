@@ -35,3 +35,16 @@
     padding: 0 1%;
     background-color: #e8e8e8;
 }
+
+button#create {
+    width: 90px;
+    height: 30px;
+    margin: auto;
+    background-color: #00BF32; /* Green */
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}

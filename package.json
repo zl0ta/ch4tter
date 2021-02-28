@@ -1,0 +1,34 @@
+{
+  "name": "ch4tter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "browserify": "^17.0.0",
+    "cardinal": "^2.1.1",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "http-server": "^0.12.3",
+    "jshint": "^2.12.0",
+    "mysql2": "^2.2.5",
+    "ws": "^7.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zl0ta/ch4tter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zl0ta/ch4tter/issues"
+  },
+  "homepage": "https://github.com/zl0ta/ch4tter#readme"
+}
