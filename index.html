@@ -157,14 +157,12 @@
                             <span class="close">&times</span>
                         </div>
                         <div class="popup-body">
-                            <form method="POST" id="add-chat">
+                            <form method="POST" action="main/add-chat">
                                 <span>Chat-room title</span><br>
-                                <input type="text" id="title"><br>
+                                <input name="title" type="text"><br>
                                 <span>Description</span><br>
-                                <input type="text" id="description">
-                                <!--<span>Add members</span><br>
-                                <input type="text" class="user-login">
-                                <span class="add-member">&nbsp+&nbsp</span>-->
+                                <textarea name="description" rows="3" id="description"></textarea>
+                                <input type="submit" value="Save">
                             </form>
                         </div>
                     </div>
@@ -185,18 +183,6 @@
                             popup.style.display = "none";
                         }
                     }
-
-                    //при натисненні на "+" додається ще одне поле для введення логіну юзера
-                    //поки що реалізовувати не буду, у чат-рум можна буде потрапити через пошук або унінікальне посилання
-                    /*const add_member = document.querySelector('.add-member');
-                    const form = document.getElementById('add-chat')
-                    add_member.onclick = function() {
-                        const input = document.createElement('input');
-                        input.type = "text";
-                        input.className = "user-login";
-                        document.body.form.insertAdjacentHTML("afterbegin", `<input class="user-login">`);
-                    }*/
-
                 </script>
             </div>
             <!--список чатов пользователя из базы данных.

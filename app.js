@@ -7,8 +7,10 @@ const http = require("http-server");
 
 const app = express();
 const server = http.createServer(app);
-const urlencodedParser = bodyParser.urlencoded({extended: false});
 const wsServer = new WebSocket.Server({port: 3000});
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 wsServer.on('connection', ws => {
   ws.on('message', m => {
@@ -37,20 +39,20 @@ const pool = mysql.createPool({
 //app.set("view engine", "hbs");
 
 //переключение между страницами
-app.get("/reg", urlencodedParser, function (req, res) {   
+app.get("/reg", function (req, res) {   
   res.sendFile(__dirname + "/sign_up.html");
 });
 
-app.get("/main", urlencodedParser, function (req, res) {   
+app.get("/main", function (req, res) {   
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get("/log_in", urlencodedParser, function (req, res) {   
+app.get("/log_in", function (req, res) {   
   res.sendFile(__dirname + "/sign_in.html");
 });
 
 //регистрация пользователя, добавление данных в БД
-app.post("/reg", urlencodedParser, function (req, res) {
+app.post("/reg", function (req, res) {
   if(!req.body) return res.sendStatus(400);
   const login = req.body.login;
   const password = req.body.password;
@@ -62,7 +64,7 @@ app.post("/reg", urlencodedParser, function (req, res) {
 });
 
 //вход в аккаунт, проверка 
-app.post("/log_in", urlencodedParser, function (req, res) {
+app.post("/log_in", function (req, res) {
   if(!req.body) return res.sendStatus(400);
   const login = req.body.login;
   const password = req.body.password;
@@ -84,7 +86,18 @@ app.post("/log_in", urlencodedParser, function (req, res) {
   })();
 });
 
-app.post("/main", urlencodedParser, function (req, res) {
+app.post("/main/add-chat", function (req, res) {
+  if(!req.body) return res.sendStatus(400);
+  const title = req.body.title;
+  const description = req.body.description;
+  const user_id = 3;
+  pool.query("INSERT INTO chats (title, members, description) VALUES (?,?.?)", [title, user_id, description], function(err) {
+    if(err) return console.log(err);
+    res.redirect("/main");
+  });
+});
+
+/*app.post("/main", function (req, res) {
   if(!req.body) return res.sendStatus(400);
 
   const messages = req.body.messages;
@@ -107,6 +120,6 @@ app.post("/main", urlencodedParser, function (req, res) {
   });
 
   ws.onmessage = response => printMessage(response.data);
-});
+});*/
 
 app.listen(8080);
