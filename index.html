@@ -203,13 +203,13 @@
             </div>
             
             <!--окно открытого чата. История сообщений с автором и временем отправления-->
-            <main class="chat-window">
-                <ul method="GET" id="messages"></ul>
-                <form method="POST">
-                    <input id="input" type="text" required autofocus autocomplete="off" placeholder="Message">
+            <div class="chat-window">
+                <ul method="GET" name="messages"></ul>
+                <form method="POST" action="/main/send">
+                    <input name="input" type="text" required autofocus autocomplete="off" placeholder="Message">
                     <input type="submit" value="Send" style="display: inline-block; max-width: 60px; margin-left: 5px;">
                 </form>
-            </main>
+            </div>
         </div>
     </body>
 </html>
